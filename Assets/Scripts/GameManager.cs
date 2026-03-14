@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     private InputSystem_Actions inputActions;
     private bool isPaused = false;
+    [SerializeField] int totalObjects = 15;
+    private int collectedCount = 0;
 
     public static GameManager GetInstance() => instance;
 
@@ -48,5 +50,18 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1; // por si acaso estaba pausado al reiniciar
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    public void OnObjectCollected()
+    {
+        collectedCount++;
+        Debug.Log("Recogidos: " + collectedCount + "/" + totalObjects);
+
+        if (collectedCount >= totalObjects)
+        {
+            Debug.Log("¡Ganaste!");
+            // Por ahora solo recarga, luego puedes poner pantalla de victoria
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
