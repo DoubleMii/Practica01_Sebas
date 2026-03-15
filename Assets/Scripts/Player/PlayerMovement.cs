@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         inputActions.Disable();
     }
-
+  
   /*  void OnBperformed()
     {
         Script.GetBala();

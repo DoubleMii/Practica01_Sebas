@@ -31,14 +31,14 @@ public class GameManager : MonoBehaviour
         inputActions.Game.Pause.performed += ctx => PausePerformed();
     }
 
-    void OnDestroy()
+/* void OnDestroy()
     {
         inputActions.Game.ReStart.performed -= ctx => OnRperformed();
         inputActions.Game.Pause.performed -= ctx => PausePerformed();
         inputActions.Disable();
         inputActions.Dispose();
     }
-
+  */
     void PausePerformed()
     {
         isPaused = !isPaused;
